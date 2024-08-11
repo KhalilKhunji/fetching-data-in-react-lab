@@ -11,13 +11,21 @@ const App = () => {
     setStarships(starshipData.results);
   };
 
+  const getSearchship = async (searchship) => {
+    const searchshipData = await starshipService.searchStarship(searchship);
+    setStarships(searchshipData.results);
+  };
+
   useEffect(() => {
-    getStarshipList();
+    const getDeftaultStarshipList = async () => {
+      await getStarshipList();
+    }
+    getDeftaultStarshipList();
   }, []);
 
   return (
     <>
-    <StarshipSearch />
+    <StarshipSearch getSearchship={getSearchship} />
     <StarshipList starships={starships} />
     </>
   );

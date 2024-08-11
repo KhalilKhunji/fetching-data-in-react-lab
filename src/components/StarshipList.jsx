@@ -2,16 +2,12 @@ import StarshipCard from './StarshipCard';
 
 const StarshipList = ({starships}) => {
     return(
-        <ul>
+        <>
+            <h1>Starships!</h1>
             {starships.map((starship) => (
-                <li key={starship.name}>
-                    {starship.name}
-                    {starship.starship_class}
-                    {starship.manufacturer}
-                    {starship.model}
-                </li>
+                <StarshipCard  key={starship.name} starship={starship} />
             ))}
-        </ul>
+        </>
     );
 };
 
